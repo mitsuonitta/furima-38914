@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="it9y30fzY-0y0SebkajC" name="ページ1">
+        <mxGraphModel dx="1208" dy="270" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="users" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-820" y="160" width="320" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="nickname (string / null:false)ニックネーム&#10;password (string / null:false)パスワード&#10;email (string null: false, unique: true, index: true)メール&#10;first_name(string / null: false)名前&#10;family_name (string / null: false)名字&#10;first_name kana (string / null: false)かな名前&#10;family_name_kana (string / null: false)かな名字&#10;birth_date(date null:false)生年月日&#10;&#10;### Association&#10;has_many :products dependent: :destroy 製品に依存&#10;belongs_to :destination dependent: :destroy 目的地に依存&#10;belongs_to :card dependent: :destroy カード依存" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBackgroundColor=none;fontColor=default;" parent="2" vertex="1">
+                    <mxGeometry y="26" width="320" height="294" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="-360" y="160" width="350" height="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="image (string / null: false)画像&#10;name (string / null: false)商品名&#10;price (integer / null: false)価格&#10;brand (integer/)ブランド&#10;item_condition (integer / null: false)アイテムの状態&#10;postage_payer (integer/ null: false)送料の支払人&#10;preparation_day (integer null: false)準備日&#10;postage_type(integer/ null: false)送料タイプ&#10;category (integer/ null: false)カテゴリー&#10;trading_status(integer / null: faise)取引ステータス&#10;seller (references / null: false)売り手&#10;buyer (references / null: false)買い手&#10;name (string / null:false)商品名&#10;item_condition (integer/ null: false)商品の状態&#10;&#10;### Association&#10;belongs_to :user ユーザー属" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
+                    <mxGeometry y="26" width="350" height="294" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;exitX=1;exitY=0.286;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="3">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-470" y="270" as="sourcePoint"/>
+                        <mxPoint x="-360" y="270.21" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-360" y="270.21"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" value="&lt;span style=&quot;color: rgb(36, 41, 47); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; font-size: 14px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;ユーザー管理機能&lt;/span&gt;" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-820" y="120" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="&lt;span style=&quot;color: rgb(36, 41, 47); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; font-size: 14px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;商品出品機能&lt;br&gt;&lt;/span&gt;" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-360" y="120" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="カラム名 (カラム型 / オプション)" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-581" y="40" width="335" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="テーブル名" style="whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-581" width="335" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="&lt;span style=&quot;color: rgb(36, 41, 47); font-family: -apple-system, &amp;quot;system-ui&amp;quot;, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; font-size: 14px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;商品&lt;/span&gt;" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-360" y="550" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="125" value="destination" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-820" y="590" width="310" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="126" value="user (references / null: false, foreign_key: true)&#10;customer_ id (string / null: false) &#10;card_id (string / null: false)&#10;post code(string / null.faise) 郵便番号&#10;city (string / null:false)都道府県&#10;house number ( string /null:false)住所&#10;building _name ( string /)ビル名&#10;phone_numher (string / unique: true)電話&#10;&#10;### Association&#10;belongs_to :user ユーザー属" style="text;strokeColor=#FFFFFF;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="125">
+                    <mxGeometry y="26" width="310" height="224" as="geometry"/>
+                </mxCell>
+                <mxCell id="129" value="顧客クレジット&lt;br&gt;発送先" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-820" y="550" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;rounded=1;strokeColor=default;fontColor=default;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.487;entryY=0.999;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="125" target="3">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-665" y="580" as="sourcePoint"/>
+                        <mxPoint x="-665.48" y="479" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="134" value="product" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBackgroundColor=none;strokeColor=#FFFFFF;fontColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-360" y="590" width="350" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="135" value="image (string / null: false)画像&#10;name (string / null: false)商品名&#10;price (string / null: false)価格&#10;description (string / null: false)説明&#10;status (string / null: false)ステータス&#10;size (string / null: false)サイズ&#10;shipping_cost (string / null: false)配送料の負担&#10;shipping_days (string / null: false)発送日の目安&#10;prefecture_id (string / null: false)発送元の地域&#10;judgment (string / )お気に入り判定&#10;category_id (integer / null: false, foreign_key: true)カテゴリーID&#10;brand_id (integer / null: false, foreign_key: true)ブランドID&#10;shipping_id (integer / null: false, foreign_key: true)運送ID&#10;user_id (integer / null: false, foreign_key: true)ユーザーID&#10;&#10;### Association&#10;belongs_to :user dependent: :destroy ユーザーID&#10;belongs_to :category dependent: :destroy カテゴリーID&#10;belongs_to :brand dependent: :destroy ブランドID&#10;has_many :images dependent: :destroy&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;labelBackgroundColor=none;fontColor=default;" vertex="1" parent="134">
+                    <mxGeometry y="26" width="350" height="384" as="geometry"/>
+                </mxCell>
+                <mxCell id="140" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;rounded=1;strokeColor=default;fontColor=default;entryX=0.486;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="134">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-190" y="480" as="sourcePoint"/>
+                        <mxPoint x="-190" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="141" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;rounded=1;strokeColor=default;fontColor=default;exitX=1;exitY=0.835;exitDx=0;exitDy=0;entryX=0;entryY=0.487;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="126" target="135">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-500" y="730" as="sourcePoint"/>
+                        <mxPoint x="-380" y="730" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="143" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;rounded=1;strokeColor=default;fontColor=default;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="3" target="134">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="-510" y="482" as="sourcePoint"/>
+                        <mxPoint x="-390" y="470" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-360" y="590"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
