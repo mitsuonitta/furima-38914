@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type        | Options                              |
-| ------------------ | ----------- | ------------------------------------ |
-| nickname           | string      | null: false                          |
-| password           | string      | null: false                          |
-| email              | string      | null: false, uniqe: true, index: true|
-| first_name         | string      | null: false                          |
-| family_name        | string      | null: false                          |
-| first_name kana    | string      | null: false                          |
-| family_name_kana   | string      | null: false                          |
-| birth_date         | date        | null: false                          |
+| Column             | Type        | Options                       |
+| ------------------ | ----------- | ----------------------------- |
+| nickname           | string      | null: false                   |
+| encrypted_pa​​ssword | string      | null: false                   |
+| email              | string      | null: false, uniqe: true      |
+| first_name         | string      | null: false                   |
+| family_name        | string      | null: false                   |
+| first_name kana    | string      | null: false                   |
+| family_name_kana   | string      | null: false                   |
+| birth_date         | date        | null: false                   |
 
 ### Association
 
@@ -23,25 +23,21 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| image              | string     | null: false                    |
-| item_condition     | integer    | null: false                    |
-| postage_payer      | integer    | null: false                    |
 | preparation_day    | integer    | null: false                    |
-| postage_type       | integer    | null: false                    |
 | category           | integer    | null: false                    |
 | trading_status     | integer    | null: faise                    |
 | seller             | references | null: false                    |
 | buyer              | references | null: false                    |
 | name               | string     | null: false                    |
-| item_condition     | integer    | null: false                    |
-
+| postage_type_id    | integer    | null: false                    |
+| postage_payer_id   | integer    | null: false                    |
 
 ### Association
 
 - has_many :comments
 - belongs_to :user
 
-## product テーブル
+## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -67,14 +63,11 @@
 - belongs_to :brand dependent: :destroy
 - has_many :images dependent: :destroy
 
-##  destination テーブル
+##  addresses テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user               | references | null: false, foreign_key: true |
-| customer_ id       | string     | null: false                    | 
-| card_id            | string     | null: false                    |
-| post code          | string     | null: faise                    |
+| post_code          | string     | null: faise                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
