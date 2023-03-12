@@ -16,25 +16,22 @@
 ### Association
 
 - has_many :products dependent: :destroy
-- belongs_to :destination dependent: :destroy
-- belongs_to :card dependent: :destroy
 
 ## items テーブル 
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| preparation_day    | integer    | null: false                    |
-| category           | integer    | null: false                    |
-| trading_status     | integer    | null: faise                    |
-| seller             | references | null: false                    |
-| buyer              | references | null: false                    |
 | name               | string     | null: false                    |
+| description        | string     | null: false                    |
+| preparation_day_id | integer    | null: false                    |
+| category_id        | integer    | null: false                    |
+| trading_status_id  | integer    | null: faise                    |
 | postage_type_id    | integer    | null: false                    |
 | postage_payer_id   | integer    | null: false                    |
+| user_id            | integer    | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :comments
 - belongs_to :user
 
 ## orders テーブル
