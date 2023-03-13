@@ -28,30 +28,27 @@
 | preparation_day_id | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | trading_status_id  | integer    | null: faise                    |
-| postage_type_id    | integer    | null: false                    |
-| postage_payer_id   | integer    | null: false                    |
 | user_id            | integer    | null: false, foreign_key: true |
 | prefecture_id	     | integer	  | null: false                    |
 
 
 ### Association
 
-- belongs_to :user
-- belongs_to :order
+- belongs_to :user 
+- has_one :order
 
 ## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| item_id       | references | null: false, foreign_key: true |
-| user_id       | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :brand
 - belongs_to :item
 - belongs_to :user
-- has_one :addresses
+- has_one :addresse
 
 
 ##  addresses テーブル
