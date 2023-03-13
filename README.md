@@ -27,7 +27,7 @@
 | description        | text       | null: false                    |
 | preparation_day_id | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
-| user               | integer    | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 | prefecture_id	     | integer	  | null: false                    |
 | item_condition_id  | integer    | null: false                    |
 | postage_payer_id   | integer    | null: false                    |
@@ -48,7 +48,7 @@
 
 - belongs_to :item
 - belongs_to :user
-- has_one :addresse
+- has_one :address
 
 
 ##  addresses テーブル
