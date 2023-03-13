@@ -9,20 +9,25 @@
 | email              | string      | null: false, unique: true     |
 | first_name         | string      | null: false                   |
 | family_name        | string      | null: false                   |
-| first_name kana    | string      | null: false                   |
+| first_name_kana    | string      | null: false                   |
 | family_name_kana   | string      | null: false                   |
 | birth_date         | date        | null: false                   |
 
 ### Association
 
-- has_many :products dependent: :destroy
+- has_many :products
+- has_many :items
+- has_many :orders
+- has_many :addresses
+
 
 ## items テーブル 
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
-| description        | string     | null: false                    |
+| price              | string     | null: false                    |
+| description        | text       | null: false                    |
 | preparation_day_id | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | trading_status_id  | integer    | null: faise                    |
@@ -39,20 +44,15 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| name          | string     | null: false                    |
-| size          | string     | null: false                    |
-| shipping_cost | string     | null: false                    |
-| shipping_days | string     | null: false                    |
-| prefecture_id | string     | null: false                    |
-| category_id   | integer    | null: false, foreign_key: true |
-| brand_id      | integer    | null: false, foreign_key: true |
-| shipping_id   | integer    | null: false, foreign_key: true |
+| item_id   | integer    | null: false, foreign_key: true |
 | user_id       | integer    | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :brand dependent: :destroy
-- has_many :images dependent: :destroy
+- belongs_to :brand
+- has_many :images
+- has_many :addresses
+
 
 ##  addresses テーブル
 
@@ -60,10 +60,11 @@
 | ------------------ | ---------- | ------------------------------ |
 | orders             | references | null: false, foreign_key: true |
 | post_code          | string     | null: faise                    |
+| prefecture_id	     | integer	  | null: false                    |
 | city               | string     | null: false                    |
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
-| phone_numher       | string     | unique: true                   |
+| phone_numher       | string     |                                |
 
 ### Association
 
