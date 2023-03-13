@@ -27,12 +27,10 @@
 | description        | text       | null: false                    |
 | preparation_day_id | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
-| trading_status_id  | integer    | null: faise                    |
 | user               | integer    | null: false, foreign_key: true |
 | prefecture_id	     | integer	  | null: false                    |
-| item_condition     | integer    | null: false                    |
-| city               | string     | null: false                    |
-| postage_payer      | integer    | null: false                    |
+| item_condition_id  | integer    | null: false                    |
+| postage_payer_id   | integer    | null: false                    |
 
 ### Association
 
