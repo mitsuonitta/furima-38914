@@ -15,18 +15,15 @@
 
 ### Association
 
-- has_many :products
 - has_many :items
 - has_many :orders
-- has_many :addresses
-
 
 ## items テーブル 
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
-| price              | string     | null: false                    |
+| price              | integer    | null: false                    |
 | description        | text       | null: false                    |
 | preparation_day_id | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
@@ -34,37 +31,40 @@
 | postage_type_id    | integer    | null: false                    |
 | postage_payer_id   | integer    | null: false                    |
 | user_id            | integer    | null: false, foreign_key: true |
+| prefecture_id	     | integer	  | null: false                    |
 
 
 ### Association
 
 - belongs_to :user
+- belongs_to :order
 
 ## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| item_id   | integer    | null: false, foreign_key: true |
-| user_id       | integer    | null: false, foreign_key: true |
+| item_id       | references | null: false, foreign_key: true |
+| user_id       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :brand
-- has_many :images
-- has_many :addresses
+- belongs_to :item
+- belongs_to :user
+- has_one :addresses
 
 
 ##  addresses テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| orders             | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 | post_code          | string     | null: faise                    |
 | prefecture_id	     | integer	  | null: false                    |
 | city               | string     | null: false                    |
-| house_number       | string     | null:false                     |
+| house_number       | string     | null: false                    |
 | building_name      | string     |                                |
-| phone_numher       | string     |                                |
+| phone_numher       | string     | null: false                    |
 
 ### Association
 
