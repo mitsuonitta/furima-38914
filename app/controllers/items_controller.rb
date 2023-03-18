@@ -12,10 +12,11 @@ class ItemsController < ApplicationController
   # end
 
   def index
-    @items = item.new
+   @items = Item.new
   end
 
   # def new
+  #   @items = item.new
   # end
   #private
 
@@ -29,5 +30,4 @@ class ItemsController < ApplicationController
     #   redirect_to root_path
     # end
   # end
-
 end
