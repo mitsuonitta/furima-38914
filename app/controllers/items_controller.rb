@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new #(item_params)
+    @item = Item.new (item_params)
      if @item.save
        redirect_to root_path
      else
@@ -15,13 +15,13 @@ class ItemsController < ApplicationController
      end
   end
 
-  # def update
-  #   if @items.update(items_params)
+  def update
+   if @items.update(items_params)
   #     redirect_to items_path(@prototype)
   #   else
   #     render :edit
-  #   end
-  # end
+     end
+  end
 
   def index
     @item = Item.new
@@ -40,9 +40,9 @@ class ItemsController < ApplicationController
   # end
   private
 
-  # def item_params
-  #   params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
-  # end
+  def item_params
+     params.require(:item).permit(:image, :name, :description, :category_id, :item_condition_id, :postage_payer_id, :prefecture_id, :preparation_day_id, :price).merge(user_id: current_user.id)
+  end
     # def set_furima
     #   @item = Item.find(params[:id])
     # end
