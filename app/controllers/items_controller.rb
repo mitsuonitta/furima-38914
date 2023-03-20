@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_furima, only: [:edit, :update, :destroy]
   before_action :prevent_url, only: [:edit, :update, :destroy]
+  #validates :content, presence: true, unless: :was_attached?
+
+  def was_attached?
+    self.image.attached?
+  end
 
   def edit
     @item = Item.find(params[:id])
