@@ -1,14 +1,20 @@
 class ItemsController < ApplicationController
-  before_action :set_furima, only: [:edit, :update, :destroy]
-  before_action :prevent_url, only: [:edit, :update, :destroy]
+  # before_action :set_furima, only: [:edit, :update, :destroy]
+  # before_action :prevent_url, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :move_to_index, except: [:index, :show]
   #validates :content, presence: true, unless: :was_attached?
 
-  def was_attached?
-    self.image.attached?
-  end
+  # def was_attached?
+  #   self.image.attached?
+  # end
 
-  def edit
-    @item = Item.find(params[:id])
+  # def edit
+  #   @item = Item.find(params[:id])
+  # end
+
+  def new
+    @item = Item.new
   end
 
   def create
@@ -20,21 +26,17 @@ class ItemsController < ApplicationController
      end
   end
 
-  def update
-   if @items.update(items_params)
-  #     redirect_to items_path(@prototype)
-  #   else
-  #     render :edit
-     end
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
-  def index
-    @item = Item.new
-  end
-
-  def new
-    @item = Item.new
-  end
+  # def update
+  #  if @items.update(items_params)
+  # #     redirect_to items_path(@prototype)
+  # #   else
+  # #     render :edit
+  #    end
+  # end
   
   # def destroy
   #   if @items.destroy
