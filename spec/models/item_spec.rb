@@ -11,18 +11,17 @@ describe '商品出品機能' do
       expect(@iten).to be_valid
     end
   end
-  context '画像が投稿できない場合' do
-    it 'contentとimageが空では保存できない' do
-      @item.content = ''
-      @item.image = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Content can't be blank")
-    end
-    it 'userが紐付いていないと保存できない' do
-      @item.user = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('User must exist')
-    end
+   context '画像が投稿できない場合' do
+     it 'contentとimageが空では保存できない' do
+       @item.content = ''
+       @item.image = nil
+       @item.valid?
+       expect(@item.errors.full_messages).to include("Content can't be blank")
+     end
+     it 'userが紐付いていないと保存できない' do
+       @item.user = nil
+       @item.valid?
+       expect(@item.errors.full_messages).to include('User must exist')
+     end
   end
-end
 end
