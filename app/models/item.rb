@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   # has_one :orders
 
   with_options presence: true do
-  validates :name
+  validates :name, presence: true 
   validates :price,numericality:{ only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
-  validates :description
+  validates :description, presence: true 
   validates :preparation_day_id, numericality: { other_than: 2 }
   validates :category_id, numericality: { other_than: 2 }
   validates :prefecture_id, numericality: { other_than: 2 }
@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   validates :postage_payer_id, numericality: { other_than: 2 }
   end
 
-  def was_attached?
-    self.image.attached?
+   def was_attached?
+   self.image.attached?
   end
 end
