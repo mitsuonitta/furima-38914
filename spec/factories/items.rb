@@ -1,17 +1,16 @@
 FactoryBot.define do
   factory :item do
-    name  { 'パソコン' }
-    price {Faker::Date.price(min_age: 300, max_age:9999999)}
-    description { '3年前に購入したMacBookです' }
-    preparation_day_id { 2 }
-    category_id { 2 }
-    prefecture_id { 2 }
-    item_condition_id { 2 }
-    postage_payer_id { 2 }
+    association :user
 
-     association :user 
-     after(:build) do |item|
-       item.image.attach(io: File.open('public/images/sample.jpeg'), filename: 'sample.jpeg')
-     end
+    name { Faker::Name.name }
+    description { Faker::Lorem.sentence }
+    preparation_day_id { Faker::Number.between(from: 1, to: 3) }
+    category_id { Faker::Number.between(from: 1, to: 10) }
+    prefecture_id { Faker::Number.between(from: 1, to: 47) }
+    item_condition_id { Faker::Number.between(from: 1, to: 6) }
+    postage_payer_id { Faker::Number.between(from: 1, to: 2) }
+    price { Faker::Number.between(from: 300, to: 9_999_999) }
+    after(:build) do |item|
+    end
   end
 end
