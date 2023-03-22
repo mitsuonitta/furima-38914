@@ -12,26 +12,26 @@ RSpec.describe Item, type: :model do
       end
     end
     context '商品出品が投稿できない場合' do
-      it 'userが紐付いていないと保存できない' do
+       it 'userが紐付いていないと保存できない' do
          @item.user = nil
          @item.valid?
          expect(@item.errors.full_messages).to include('User must exist')
-      end
-      it "nameが空では登録できない" do
+       end
+       it "nameが空では登録できない" do
          @item.name = ''
          @item.valid?
          expect(@item.errors.full_messages).to include("Name can't be blank")
-      end
-      it "descriptionが空では登録できない" do
+       end
+       it "descriptionが空では登録できない" do
           @item.description = ''
           @item.valid?
           expect(@item.errors.full_messages).to include("Description can't be blank")
-      end
-      it "priceが空では登録できない" do
+       end
+       it "priceが空では登録できない" do
           @item.price = ''
           @item.valid?
           expect(@item.errors.full_messages).to include("Price is not a number")
-      end
+       end
        it "priceが300未満だと出品できない" do
            @item.price = 299
            @item.valid?
@@ -57,25 +57,30 @@ RSpec.describe Item, type: :model do
            @item.valid?
            expect(@item.errors.full_messages).to include("Price is not a number")
        end
-      it "preparation_dayが空では登録できない" do
-          @item.preparation_day_id = ''
+      it "preparation_dayが1以外でないと出品できない" do
+          @item.preparation_day_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Preparation day is not a number")
+          expect(@item.errors.full_messages).to include("Preparation day must be other than 1")
       end
-      it "categoryが空では登録できない" do
-          @item.category_id = ''
+      it "categoryが1以外でないと出品できない" do
+          @item.category_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Category is not a number")
+          expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
-      it "item_conditionが空では登録できない" do
-          @item.item_condition_id = ''
+      it "item_conditionが1以外でないと出品できない" do
+          @item.item_condition_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Item condition is not a number")
+          expect(@item.errors.full_messages).to include("Item condition must be other than 1")
       end
-      it "prefectureが空では登録できない" do
-          @item.prefecture_id = ''
+      it "prefectureが1以外でないと出品できない" do
+          @item.prefecture_id = 1
           @item.valid?
-          expect(@item.errors.full_messages).to include("Prefecture is not a number")
+          expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+      it "postage_payerが1以外でないと出品できない" do
+          @item.postage_payer_id = 1
+          @item.valid?
+          expect(@item.errors.full_messages).to include("Postage payer must be other than 1")
       end
     end
   end
