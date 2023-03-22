@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   #validates :content, presence: true, unless: :was_attached?
 
+  def index
+    @item = Item.all
+  end
   # def was_attached?
   #   self.image.attached?
   # end
