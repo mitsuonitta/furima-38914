@@ -21,10 +21,11 @@ class Item < ApplicationRecord
   validates :item_condition_id, numericality: { other_than: 1 }
   validates :postage_payer_id, numericality: { other_than: 1 }
   validates :subtitle, presence: true, unless: :was_attached?
+  validates :content, presence: true, unless: :was_attached?
 
   #end
 
    def was_attached?
-   self.image.attached?
+    self.image.attached?
   end
 end

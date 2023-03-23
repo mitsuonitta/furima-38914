@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   # before_action :set_furima, only: [:edit, :update, :destroy]
   # before_action :prevent_url, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :show]
   before_action :authenticate_user!, except: [:show, :index]
   before_action :move_to_index, except: [:index, :show]
   #validates :content, presence: true, unless: :was_attached?
@@ -8,12 +9,19 @@ class ItemsController < ApplicationController
   def index
     @item = Item.all.order("created_at DESC")
   end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   # def was_attached?
   #   self.image.attached?
-  # end
-
-  # def edit
-  #   @item = Item.find(params[:id])
   # end
 
   def new
@@ -61,5 +69,5 @@ class ItemsController < ApplicationController
     # if @item.user_id != current_user.id || @item.purchase != nil #　コードを追加
     #   redirect_to root_path
     # end
-  # end
+  #end
 end
