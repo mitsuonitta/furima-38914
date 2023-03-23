@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   #validates :content, presence: true, unless: :was_attached?
 
   def index
-    @item = Item.all
+    @item = Item.all.order("created_at DESC")
   end
   # def was_attached?
   #   self.image.attached?
