@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :prevent_url, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:index, :show]
   before_action :set_item, only: [:edit, :update, :show, :destroy]
   # before_action :item_purchase ,only: :edit
   # before_action :move_to_index, except: [:index, :show #記述を上手く扱えれば機能する]
@@ -8,7 +8,9 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.all.order("created_at DESC")
-
+    # if current_user == @item.user
+    #    redirect_to root_path
+    #   end
   end
 
   def new
@@ -25,7 +27,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
 
+  if @item.user_id != current_user.id
+    redirect_to root_path
+  end
   end
 
   # def was_attached?
