@@ -25,8 +25,8 @@ class ItemsController < ApplicationController
      end
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
   # def was_attached?
   #   self.image.attached?
