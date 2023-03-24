@@ -36,31 +36,31 @@ class ItemsController < ApplicationController
   #   redirect_to new_user_session_path unless user_signed_in?
   # end
 
-  def update
-    if @item.save
-      redirect_to item_path
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @item.save
+  #     redirect_to item_path
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
-  def destroy
-    if current_user.id == @item.user_id
-    if @items.destroy
-    end 
-      redirect_to root_path
-   end
-  end
+  # def destroy
+  #   if current_user.id == @item.user_id
+  #   if @items.destroy
+  #   end 
+  #     redirect_to root_path
+  #  end
+  # end
 
-  def  item_purchase
-    @item = Item.find(params[:id])
-     if @item.purchase
-      redirect_to root_path
-     end
-   end
+  # def  item_purchase
+  #   @item = Item.find(params[:id])
+  #    if @item.purchase
+  #     redirect_to root_path
+  #    end
+  #  end
   
   private
 
