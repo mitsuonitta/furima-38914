@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   # before_action :set_furima, only: [:edit, :update, :destroy]
   # before_action :prevent_url, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :item_purchase ,only: :edit
   # before_action :move_to_index, except: [:index, :show]
   # validates :content, presence: true, unless: :was_attached?
 
@@ -54,6 +55,13 @@ class ItemsController < ApplicationController
    end
   end
 
+  def  item_purchase
+    @item = Item.find(params[:id])
+     if @item.purchase
+      redirect_to root_path
+     end
+   end
+  
   private
 
   def item_params
