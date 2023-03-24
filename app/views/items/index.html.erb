@@ -129,14 +129,16 @@
     <ul class='item-lists'>
         <% @item.each do |item| %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to item_path(item.id), method: :get  do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
         <% if @user_item %>
           <%# 商品が売れていればsold outを表示しましょう %>
+        <% if item.purchase %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+        <% end %>
           <%# //商品が売れていればsold outを表示しましょう %>
           <% end %>
         </div>
@@ -155,11 +157,9 @@
         <% end %>
       </li>
     <% end %>
-
       <% if @item.present? %>
       <% else %>
       <li class='list'>
-        <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -171,13 +171,13 @@
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
             </div>
-              <%#= image_tag item.image.variant(resize: '500x500'), class: 'item-image' if item.image.attached? %>
+              <%= image_tag item.image.variant(resize: '500x500'), class: 'item-image' if item.image.attached? %>
           </div>
         </div>
         <% end %>
       </li>
-      <%# //商品がある場合は表示されないようにしましょう %>
       <% end %>
+      <%# //商品がある場合は表示されないようにしましょう %>
     </ul>
   </div>
   <%# /商品一覧 %>
