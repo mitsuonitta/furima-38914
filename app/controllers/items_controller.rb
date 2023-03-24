@@ -25,8 +25,8 @@ class ItemsController < ApplicationController
      end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   # def was_attached?
   #   self.image.attached?
@@ -44,8 +44,8 @@ class ItemsController < ApplicationController
   #   end
   # end
 
-  # def show
-  # end
+  def show
+  end
 
   # def destroy
   #   if current_user.id == @item.user_id
