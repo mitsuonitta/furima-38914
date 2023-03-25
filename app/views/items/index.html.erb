@@ -160,6 +160,7 @@
       <% if @item.present? %>
       <% else %>
       <li class='list'>
+     <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -171,7 +172,6 @@
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
             </div>
-              <%= image_tag item.image.variant(resize: '500x500'), class: 'item-image' if item.image.attached? %>
           </div>
         </div>
         <% end %>
