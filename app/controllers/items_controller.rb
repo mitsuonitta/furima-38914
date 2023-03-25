@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   # before_action :prevent_url, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :set_item, except: [:edit, :update, :show, :destroy]
   # before_action :item_purchase ,only: :edit
   # before_action :move_to_index, except: [:index, :show #記述を上手く扱えれば機能する]
   # validates :content, presence: true, unless: :was_attached?
@@ -27,8 +27,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-
   if @item.user_id != current_user.id
     redirect_to root_path
   end
