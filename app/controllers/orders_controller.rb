@@ -7,10 +7,6 @@ class OrdersController < ApplicationController
     @order_addresse = OrderAddresse.new
   end
   
-  def new
-    @order_addresse = OrderAddresse.new
-  end
-  
   def create
     @item = Item.find(params[:item_id])
     @order_addresse = OrderAddresse.new(order_addresse)
@@ -27,15 +23,15 @@ class OrdersController < ApplicationController
    private
 
    def order_addresse
-    params.require(:order_addresse).permit(:order_id, :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_numher). merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:order_addresse).permit(:order_id, :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_numher). merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
    end
 
    def pay_item
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key =  "sk_test_4fc3aeb01c56395f86719675"
     Payjp::Charge.create(
-      amount: @item.price,        # 商品の値段
-      card: order_params[:token], # カードトークン
-      currency: 'jpy'             # 通貨の種類（日本円）
+      amount: @item.price,  # 商品の値段
+      card: order_addresse[:token],    # カードトークン
+      currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
 

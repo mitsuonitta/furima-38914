@@ -1,4 +1,5 @@
 class OrderAddresse
+  attr_accessor :token
   include ActiveModel::Model
   attr_accessor :post_code, :prefecture_id, :city, :house_number, :building_name, :phone_numher, :user_id, :item_id, :token
 
@@ -11,7 +12,7 @@ class OrderAddresse
     validates :house_number
     #validates :building_name
     validates :phone_numher, format: { with: /\A\d{10,11}\z/}
-    validates :token
+    validates :token, presence: true
   end
 
    def save
