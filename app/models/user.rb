@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  #has_many :orders
+  has_many :order
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX
@@ -18,6 +18,6 @@ class User < ApplicationRecord
 
 #  def save
 #   purchase = PurchaseHistory.create(user_id: user_id, item_id: item_id )
-#   SendingDestination.create(post_code: post_code, prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name, phone_number: phone_number, purchase_history_id: purchase.id)
+#   SendingDestination.create(post_code: post_code, prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name, phone_numher: phone_numher, purchase_history_id: purchase.id)
 #   end
 end
