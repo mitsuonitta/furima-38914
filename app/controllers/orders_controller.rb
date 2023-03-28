@@ -1,14 +1,15 @@
 class OrdersController < ApplicationController
     before_action :authenticate_user!
     before_action :prevent_url, only: [:index, :create]
+    before_action :set_item, except: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
+    #@item = Item.find(params[:item_id])
     @order_addresse = OrderAddresse.new
   end
   
   def create
-    @item = Item.find(params[:item_id])
+    #@item = Item.find(params[:item_id])
     @order_addresse = OrderAddresse.new(order_addresse)
     if @order_addresse.valid?
       pay_item
