@@ -18,3 +18,4 @@ class OrderAddresse
      Addresse.create(order_id: order.id, post_code: post_code, prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name, phone_numher: phone_numher)
    end
 end
+
