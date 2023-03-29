@@ -19,7 +19,6 @@ class Item < ApplicationRecord
   validates :item_condition_id, numericality: { other_than: 1 }
   validates :postage_payer_id, numericality: { other_than: 1 }
 
-
    def was_attached?
     self.image.attached?
   end
