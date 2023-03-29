@@ -9,7 +9,6 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_one :order
 
-  #with_options presence: true do
   validates :image, presence: true 
   validates :name, presence: true 
   validates :price,numericality:{ only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
@@ -19,10 +18,6 @@ class Item < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :item_condition_id, numericality: { other_than: 1 }
   validates :postage_payer_id, numericality: { other_than: 1 }
-  validates :subtitle, presence: true, unless: :was_attached?
-  validates :content, presence: true, unless: :was_attached?
-
-  #end
 
    def was_attached?
     self.image.attached?
